@@ -1,14 +1,16 @@
 from django.db import models
-from django.utils.timezone import datetime
+from datetime import datetime
+
+from pytz import timezone
 
 # Create your models here.
-class Feature (models.Model):
-    
-    task=models.CharField(max_length=1000)
-    email=models.EmailField(default='user@gmail.com')
-    
 
-    def __string__(self):
-        return self.task   
-
-
+class Feature(models.Model):
+    region=models.CharField(max_length=100,default='Central')
+    title=models.CharField(max_length=100,default='Tsavo')
+    experience=models.CharField(max_length=100,default='i love it')
+    created=models.DateTimeField(auto_now_add=True,blank=True)
+    location=models.CharField(max_length=100,default="nairobi")
+    weather=models.CharField(max_length=100,default="hot")
+    def __str__(self):
+        return '{}{}'.format(self.region,self.title)

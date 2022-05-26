@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'main',
     'authapp',
     'django.contrib.staticfiles',
-    'django_sms',
     'debug_toolbar',
 ]
 

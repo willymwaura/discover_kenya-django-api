@@ -11,7 +11,7 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
-@permission_classes ((IsAuthenticated,))
+#@permission_classes ((IsAuthenticated,))
 class restricted(APIView):
    def get(self,request):
       return Response("only for AUTH in users")
