@@ -10,7 +10,7 @@ class Feature(models.Model):
     title=models.CharField(max_length=100,default='Tsavo')
     experience=models.CharField(max_length=100,default='i love it')
     created=models.DateTimeField(auto_now_add=True,blank=True)
-    location=models.CharField(max_length=100,default="nairobi")
-    weather=models.CharField(max_length=100,default="hot")
+    nearby_town=models.CharField(max_length=100,default="nairobi")
+    weather=models.CharField(max_length=100,default="nairobi")
     def __str__(self):
         return '{}{}'.format(self.region,self.title)
