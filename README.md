@@ -2,5 +2,5 @@
 django api for a tourist web application
 authentication is done using djoser
 caching is done using memcahed
-Third party api used are google maps api 
-and weather api
+google maps api used to locate a tourist site
+weather api (open weather)to find weather of a certain place
