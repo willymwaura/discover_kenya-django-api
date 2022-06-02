@@ -54,4 +54,11 @@ class sitesperregion(APIView):
         sites_per_region=Feature.objects.filter(region=pk)
         serializer=FeatureSerializer(sites_per_region,many=True)
         return Response(serializer.data)
+class map(APIView):
+    def get(self,request,pk):
+        site=Feature.objects.get(id=pk)
+        site_name=site.title
+        url="https://www.google.com/maps/dir/?api=1&destination="
+        mode="&travelmode=driving"
 
+        return redirect (url+site_name+mode)
