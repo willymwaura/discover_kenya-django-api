@@ -39,12 +39,16 @@ GET:shows a json of a specific site using the id
         "weather": "warm"
     }
 3.
- /perregion/region
+ /perregion/<region>
 /perregion/Nairobi :will give all the sites in Nairobi region
+
 4 .
-/addexperience/id
+/addexperience/<id>
 will add experience to the experience with th id given
 {
 "added":"it was great"
 }
 
+5.
+/map/<site title>
+/map/nairobi national park :will show the map from your place to nairobi national park,route ,distance and other info
