@@ -7,5 +7,9 @@ class FeatureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model=Feature
-        fields="__all__"
+        fields=['id','title','experience','created','nearby_town','image_url']
         
+class SpecificSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Feature
+        fields=['id','title','experience','created','nearby_town','image_url','weather_text','degree_celcius','weather_url']

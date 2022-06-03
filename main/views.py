@@ -5,13 +5,14 @@ from rest_framework import serializers,status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from main.models import Feature
-from main.serializers import FeatureSerializer
+from main.serializers import FeatureSerializer,SpecificSerializer
 from rest_framework.status import HTTP_204_NO_CONTENT
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_headers
 from django.utils.decorators import method_decorator
+import requests
 
 #@permission_classes ((IsAuthenticated,))
 
@@ -32,7 +33,27 @@ class allsites(APIView):
 class specificsite(APIView):
     def get(self,request,pk):
         site=Feature.objects.get(id=pk)
-        serializer=FeatureSerializer(site)
+        site_name=site.nearby_town
+        url="http://api.weatherapi.com/v1/current.json?"
+        key="key=59639ecea3c34ac3ba2140442223105&q="
+        parameter=site_name
+        end="&aqi=no"
+        url=url +key +parameter + end
+        #url="http://api.weatherapi.com/v1/current.json?key=59639ecea3c34ac3ba2140442223105&q=London&aqi=no"
+        response=requests.get(url).json()
+        print(response)
+        temp_c=response['current']['temp_c']
+        weather_text=response['current']['condition']['text']
+        weather_image=response['current']['condition']['icon']
+        print(weather_text)
+        site.weather_text=weather_text
+        site.degree_celcius=temp_c
+        site.weather_url=weather_image
+        serializer=SpecificSerializer(site)
+        '''if serializer.is_valid():
+            serializer.save(weather_text=weather_text,degree_celcius=temp_c,weather_url=weather_image)
+            return Response(serializer.data)
+        return HttpResponse("failed")'''
         return Response(serializer.data)
      
 class addexperience(APIView):
