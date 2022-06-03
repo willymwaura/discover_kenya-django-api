@@ -12,7 +12,8 @@ json
         "experience": "its was insanely awesomei recommend this place",
         "created": "2022-05-26T10:29:31.454952Z",
         "location": "a few km  from nyeri town",
-        "weather": "warm"
+        "weather": "warm",
+        "image_url":"//cdn.weatherapi.com/weather/64x64/day/116.png"
     },
     {
         "id": 2,
@@ -21,7 +22,8 @@ json
         "experience": "its was a great place to rest",
         "created": "2022-05-26T10:56:43.347266Z",
         "location": "in nairobi town",
-        "weather": "warm"
+        "weather": "warm",
+        "image_url":"//cdn.weatherapi.com/weather/64x64/day/116.png"
     }
 ]
 2.
@@ -36,7 +38,8 @@ GET:shows a json of a specific site using the id
         "experience": "its was a great place to rest",
         "created": "2022-05-26T10:56:43.347266Z",
         "location": "in nairobi town",
-        "weather": "warm"
+        "weather": "warm",
+        "image_url":"//cdn.weatherapi.com/weather/64x64/day/116.png"
     }
 3.
  /perregion/<region>
