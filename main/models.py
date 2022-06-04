@@ -8,7 +8,7 @@ from pytz import timezone
 class Feature(models.Model):
     region=models.CharField(max_length=255,default='Central')
     title=models.CharField(max_length=255,default='Tsavo')
-    image_url=models.URLField(max_length=200,default="//cdn.weatherapi.com/weather/64x64/day/116.png")
+    image_url=models.URLField(default="//cdn.weatherapi.com/weather/64x64/day/116.png")
     experience=models.CharField(max_length=255,default='i loved it')
     created=models.DateTimeField(auto_now_add=True,blank=True)
     nearby_town=models.CharField(max_length=255,default="nairobi")
