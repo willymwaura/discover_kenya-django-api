@@ -83,3 +83,8 @@ class map(APIView):
         mode="&travelmode=driving"
 
         return redirect (url+site_name+mode)
+class deletesite(APIView):
+    def delete(Self,request,pk):
+        site=Feature.objects.get(id=pk)
+        site.delete()
+        return Response('Deleted')
