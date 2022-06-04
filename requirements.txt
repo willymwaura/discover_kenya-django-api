@@ -19,3 +19,4 @@ sqlparse==0.4.2
 tzdata==2021.5
 urllib3==1.26.8
 django-debug-toolbar==3.3.0
+djoser==2.1.0
